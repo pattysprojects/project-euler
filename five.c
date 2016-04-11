@@ -11,27 +11,26 @@ of pairs of numbers and dividing by their respective GCDs **/
 #include <stdio.h>
 #include <stdint.h>
 
-int64_t findGCD(int64_t a, int64_t b);
+int64_t find_GCD(int64_t a, int64_t b);
 
 int main() {
-	int64_t nextNum, currLCM, currNum;
-	currNum = 1;
-	nextNum = currNum + 1;
+	int64_t next_num, curr_LCM, currNum = 1;
+	next_num = currNum + 1;
 
 	// Find the LCM of pairs of numbers up and including 20
-	while (nextNum <= 20) {
-		currLCM = (currNum * nextNum) / findGCD(currNum, nextNum);
-		currNum = currLCM;
-		nextNum = nextNum + 1;
+	while (next_num <= 20) {
+		curr_LCM = (currNum * next_num) / find_GCD(currNum, next_num);
+		currNum = curr_LCM;
+		next_num = next_num + 1;
 	}
 
 	// Print out the LCM of 1 through 20
-	printf("%d\n", currLCM);
+	printf("%d\n", curr_LCM);
 }
 
 // Using the extended Euclidean algorithm to find the greatest common divisor of two integers
 
-int64_t findGCD(int64_t a, int64_t b) {
+int64_t find_GCD(int64_t a, int64_t b) {
 	int64_t max, min, rmd;
 
 	if (a >= b) {
